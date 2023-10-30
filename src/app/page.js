@@ -47,7 +47,7 @@ const data = [
 ];
 
 const renderLineChart =  () => (
-  <LineChart className='p-20' width={400} height={400} data={data}>
+  <LineChart className='p-20' width={400} height={400} data={data} cx='50%' cy='50%'>
     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
   </LineChart>
 );
