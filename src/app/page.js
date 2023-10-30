@@ -1,55 +1,91 @@
 'use client'
 import { LineChart, Line } from 'recharts';
 
-const data = [
+const data01 = [
   {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
+    "x": 100,
+    "y": 200,
+    "z": 200
   },
   {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
+    "x": 120,
+    "y": 100,
+    "z": 260
   },
   {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
+    "x": 170,
+    "y": 300,
+    "z": 400
   },
   {
-    "name": "Page D",
-    "uv": 2780,
-    "pv": 3908,
-    "amt": 2000
+    "x": 140,
+    "y": 250,
+    "z": 280
   },
   {
-    "name": "Page E",
-    "uv": 1890,
-    "pv": 4800,
-    "amt": 2181
+    "x": 150,
+    "y": 400,
+    "z": 500
   },
   {
-    "name": "Page F",
-    "uv": 2390,
-    "pv": 3800,
-    "amt": 2500
+    "x": 110,
+    "y": 280,
+    "z": 200
+  }
+];
+const data02 = [
+  {
+    "x": 200,
+    "y": 260,
+    "z": 240
   },
   {
-    "name": "Page G",
-    "uv": 3490,
-    "pv": 4300,
-    "amt": 2100
+    "x": 240,
+    "y": 290,
+    "z": 220
+  },
+  {
+    "x": 190,
+    "y": 290,
+    "z": 250
+  },
+  {
+    "x": 198,
+    "y": 250,
+    "z": 210
+  },
+  {
+    "x": 180,
+    "y": 280,
+    "z": 260
+  },
+  {
+    "x": 210,
+    "y": 220,
+    "z": 230
   }
 ];
 
-const renderLineChart =  () => (
-  <LineChart className='p-20' width={400} height={400} data={data} cx='50%' cy='50%'>
-    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-  </LineChart>
+const homePage =  () => (
+  <ScatterChart
+  width={730}
+  height={250}
+  margin={{
+    top: 20,
+    right: 20,
+    bottom: 10,
+    left: 10,
+  }}
+  >
+  <CartesianGrid strokeDasharray="3 3" />
+    <XAxis dataKey="x" type="number" name="stature" unit="cm" />
+    <YAxis dataKey="y" type="number" name="weight" unit="kg" />
+    <ZAxis dataKey="z" type="number" range={[64, 144]} name="score" unit="km" />
+    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+    <Legend />
+    <Scatter name="A school" data={data01} fill="#8884d8" />
+    <Scatter name="B school" data={data02} fill="#82ca9d" />
+  </ScatterChart>
 );
 
-export default renderLineChart;
+export default homePage;
