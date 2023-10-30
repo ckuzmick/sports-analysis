@@ -1,5 +1,5 @@
 'use client'
-import { LineChart, Line } from 'recharts';
+import * as recharts from 'recharts';
 
 const data01 = [
   {
