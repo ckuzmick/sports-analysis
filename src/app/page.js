@@ -1,5 +1,6 @@
 'use client'
 import * as recharts from 'recharts';
+import { ScatterChart, CartesianGrid, Tooltip, XAxis, YAxis, ZAxis, Legend, Scatter } from 'recharts';
 
 const data01 = [
   {
