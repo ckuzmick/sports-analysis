@@ -1,6 +1,7 @@
 'use client'
 import * as recharts from 'recharts';
 import { ScatterChart, CartesianGrid, Tooltip, XAxis, YAxis, ZAxis, Legend, Scatter } from 'recharts';
+import puppeteer from 'puppeteer';
 
 const getData = async () => {
   const browser = await puppeteer.launch({
@@ -17,7 +18,7 @@ const getData = async () => {
   const stats = await page.evaluate(() => {
     const playerList = document.querySelector("");
 
-    return Array.from(playerList).map((player) => {
+    return finalStats.from(playerList).map((player) => {
       const rec = player.querySelector("").innerText;
       const tgt = player.querySelector("").innerText;
 
@@ -34,23 +35,21 @@ getData();
 
 const homePage =  () => (
   <ScatterChart
-  width={730}
-  height={250}
+  width={800}
+  height={800}
   margin={{
     top: 20,
     right: 20,
-    bottom: 10,
-    left: 10,
+    bottom: 20,
+    left: 20,
   }}
   >
   <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="x" type="number" name="stature" unit="cm" />
-    <YAxis dataKey="y" type="number" name="weight" unit="kg" />
-    <ZAxis dataKey="z" type="number" range={[144, 144]} name="score" unit="km" />
+    <XAxis dataKey="tgt" type="number" name="Targets" unit="" />
+    <YAxis dataKey="rec" type="number" name="Catches" unit="" />
     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
     <Legend />
-    <Scatter name="A school" data={data01} fill="#8884d8" />
-    <Scatter name="B school" data={data02} fill="#82ca9d" />
+    <Scatter name="A school" data={finalStats} fill="#8884d8" />
   </ScatterChart>
 );
 
