@@ -19,14 +19,14 @@ const WRScatter = () => {
         d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/2023wrdata.csv").then(data => {
 
         const x = d3.scaleLinear()
-            .domain([0, 200])
+            .domain([0, 80])
             .range([0, width]);
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x));
 
         const y = d3.scaleLinear()
-            .domain([0, 150])
+            .domain([0, 100])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
