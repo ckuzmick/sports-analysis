@@ -4,4 +4,17 @@
 
 body {
   background-color: white;
+  overflow: visible;
+}
+
+svg {
+  overflow: visible;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }

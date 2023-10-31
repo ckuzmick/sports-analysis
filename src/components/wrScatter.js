@@ -1,0 +1,72 @@
+import React, { useRef, useEffect } from 'react';
+import * as d3 from 'd3';
+
+const WRScatter = () => {
+    const svgRef = useRef(null);
+
+    useEffect(() => {
+        const margin = { top: 10, right: 30, bottom: 30, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+        const svg = d3.select(svgRef.current)
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/2022recieverdata.csv").then(data => {
+
+        const x = d3.scalePow()
+            .domain([0, 300])
+            .range([0, width])
+            .exponent(.7);
+        svg.append("g")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(x));
+
+        const y = d3.scalePow()
+            .domain([0, 200])
+            .range([height, 0])
+            .exponent(.7);
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        const tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        svg.append('g')
+            .selectAll("dot")
+            .data(data)
+            .join("circle")
+            .attr("cx", d => x(+d.Tgt))
+            .attr("cy", d => y(+d.Rec))
+            .attr("r", 1.5)
+            .style("fill", "#69b3a2")
+            .on("mouseover", function (event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`Player: ${d.Player} </br> Targets: ${d.Tgt} </br> Receptions: ${d.Rec}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mousemove", function (event) {
+                tooltip.style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseleave", function () {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+        });
+    }, []); // <-- closing parenthesis for useEffect hook
+
+    return <svg ref={svgRef}></svg>;
+};
+
+export default WRScatter;
