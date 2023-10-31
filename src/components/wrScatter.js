@@ -44,7 +44,7 @@ const WRScatter = () => {
             .join("circle")
             .attr("cx", d => x(+d.Tgt))
             .attr("cy", d => y(+d.Rec))
-            .attr("r", 1.5)
+            .attr("r", 3)
             .style("fill", "#69b3a2")
             .on("mouseover", function (event, d) {
                 tooltip.transition()
