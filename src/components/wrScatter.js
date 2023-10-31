@@ -16,7 +16,7 @@ const WRScatter = () => {
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/2022recieverdata.csv").then(data => {
+        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/2023wrdata.csv").then(data => {
 
         const x = d3.scaleLinear()
             .domain([0, 200])
