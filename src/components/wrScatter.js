@@ -18,18 +18,16 @@ const WRScatter = () => {
 
         d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/2022recieverdata.csv").then(data => {
 
-        const x = d3.scalePow()
-            .domain([0, 300])
-            .range([0, width])
-            .exponent(.7);
+        const x = d3.scaleLinear()
+            .domain([0, 200])
+            .range([0, width]);
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x));
 
-        const y = d3.scalePow()
-            .domain([0, 200])
-            .range([height, 0])
-            .exponent(.7);
+        const y = d3.scaleLinear()
+            .domain([0, 150])
+            .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
 
