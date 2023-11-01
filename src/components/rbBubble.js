@@ -34,8 +34,8 @@ const RBBubble = () => {
             .call(d3.axisLeft(y));
 
         const z = d3.scaleLinear()
-            .domain([0, 10000000])
-            .range([1000, 1000]);
+            .domain([500000, 10000000])
+            .range([4, 40]);
 
         const colorBalls = d3.scaleOrdinal()
             .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
