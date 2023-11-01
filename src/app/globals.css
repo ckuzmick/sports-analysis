@@ -22,3 +22,12 @@ svg {
   padding: 10px;
   border-radius: 5px;
 }
+
+.bubbles {
+  stroke-width: 2px;
+  stroke: white;
+}
+
+.bubbles:hover {
+  stroke: black;
+}
