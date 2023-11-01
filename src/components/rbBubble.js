@@ -53,8 +53,8 @@ const RBBubble = () => {
                 .attr("class", "buubbles")
                 .attr("cx", d => x(+d.gdpPercap))
                 .attr("cy", d => y(+d.lifeExp))
-                .attr("r", 3)
-                .style("fill", "#69b3a2")
+                .attr("r", d => z(d.pop))
+                .style("fill", d => colorBalls(d.continent))
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
