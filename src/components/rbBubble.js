@@ -21,7 +21,7 @@ const RBBubble = () => {
         d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/rbPay.csv").then(data => {
 
         const x = d3.scaleLinear()
-            .domain([0, 1000])
+            .domain([0, 400])
             .range([0, width]);
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
@@ -34,7 +34,7 @@ const RBBubble = () => {
             .call(d3.axisLeft(y));
 
         const z = d3.scaleLinear()
-            .domain([0, 1000])
+            .domain([0, 10000000])
             .range([1000, 1000]);
 
         const colorBalls = d3.scaleOrdinal()
