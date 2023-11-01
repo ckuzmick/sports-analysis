@@ -11,6 +11,10 @@ svg {
   overflow: visible;
 }
 
+.plot {
+
+}
+
 .tooltip {
   position: absolute;
   background-color: white;

@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import '@/app/globals.css';
 import * as ss from 'simple-statistics';
 
-const WRScatter = () => {
+const RBBubble = () => {
     const svgRef = useRef(null);
 
     useEffect(() => {
@@ -69,4 +69,4 @@ const WRScatter = () => {
     return <svg ref={svgRef}></svg>;
 };
 
-export default WRScatter;
+export default RBBubble;
