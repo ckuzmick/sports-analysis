@@ -28,14 +28,14 @@ const RBBubble = () => {
             .call(d3.axisBottom(x));
 
         const y = d3.scaleLinear()
-            .domain([35, 90])
+            .domain([0, 1000])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
 
         const z = d3.scaleLinear()
-            .domain([200000, 1310000000])
-            .range([4, 40]);
+            .domain([0, 1000])
+            .range([1000, 1000]);
 
         const colorBalls = d3.scaleOrdinal()
             .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
@@ -53,7 +53,7 @@ const RBBubble = () => {
                 .attr("class", "buubbles")
                 .attr("cx", d => x(+d.Att))
                 .attr("cy", d => y(+d.Yds))
-                .attr("r", d => z(d.Salary))
+                .attr("r", 20)
                 .style("fill", d => colorBalls(d.continent))
             .on("mouseover", function (event, d) {
                 tooltip.transition()
