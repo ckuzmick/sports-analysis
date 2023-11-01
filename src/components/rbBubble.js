@@ -28,7 +28,7 @@ const RBBubble = () => {
             .call(d3.axisBottom(x));
 
         const y = d3.scaleLinear()
-            .domain([0, 1000])
+            .domain([0, 2000])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
