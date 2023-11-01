@@ -59,7 +59,7 @@ const RBBubble = () => {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tooltip.html(`Player: ${d.zPlayer} </br> Targets: ${d.Tgt} </br> Receptions: ${d.Rec}`)
+                tooltip.html(`Player: ${d.Player} </br> Attempts: ${d.Att} </br> Yards: ${d.Yds}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
