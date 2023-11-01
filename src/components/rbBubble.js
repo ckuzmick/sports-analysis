@@ -18,7 +18,7 @@ const RBBubble = () => {
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-        d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/4_ThreeNum.csv").then(data => {
+        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/rbPay.csv").then(data => {
 
         const x = d3.scaleLinear()
             .domain([0, 12000])
@@ -51,9 +51,9 @@ const RBBubble = () => {
             .data(data)
             .join("circle")
                 .attr("class", "buubbles")
-                .attr("cx", d => x(+d.gdpPercap))
-                .attr("cy", d => y(+d.lifeExp))
-                .attr("r", d => z(d.pop))
+                .attr("cx", d => x(+d.Att))
+                .attr("cy", d => y(+d.Yds))
+                .attr("r", d => z(d.Salary))
                 .style("fill", d => colorBalls(d.continent))
             .on("mouseover", function (event, d) {
                 tooltip.transition()
