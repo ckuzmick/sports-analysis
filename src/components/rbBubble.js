@@ -35,7 +35,7 @@ const RBBubble = () => {
             .call(d3.axisLeft(y));
 
         const z = d3.scaleLinear()
-            .domain([500000, 10000000])
+            .domain([525000, 10000000])
             .range([5, 20]);
 
         const colorBalls = d3.scaleOrdinal()
