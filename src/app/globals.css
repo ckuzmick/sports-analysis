@@ -30,5 +30,5 @@ svg {
 }
 
 .bubbles:hover {
-  stroke: black;
+  stroke: #aaa;
 }
