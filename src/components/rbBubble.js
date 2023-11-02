@@ -60,6 +60,7 @@ const RBBubble = () => {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9)
+                    .style("visibility", "visible")
                 tooltip.html(`Player: ${d.Player} </br> Attempts: ${d.Att} </br> Yards: ${d.Yds} </br> Salary: ${d3.format("$.0d")(d.Salary)}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
@@ -72,6 +73,7 @@ const RBBubble = () => {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0)
+                    .style("visibility", "collapse")
             });
 
     //     const allgeierPoint = {
