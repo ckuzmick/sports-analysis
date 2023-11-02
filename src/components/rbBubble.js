@@ -68,7 +68,7 @@ const RBBubble = () => {
             })
             .on("mousemove", function (event) {
                 tooltip.style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px")s
+                    .style("top", (event.pageY - 28) + "px")
                     .attr("hidden", false);
             })
             .on("mouseleave", function () {
