@@ -72,8 +72,6 @@ const RBBubble = () => {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0)
-                tooltip.html()
-                    .style("opactiy", 100)
             });
 
     //     const allgeierPoint = {
