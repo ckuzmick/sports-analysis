@@ -36,7 +36,7 @@ const RBBubble = () => {
 
         const z = d3.scaleLinear()
             .domain([525000, 10000000])
-            .range([5, 20]);
+            .range([5, 22]);
 
         const colorBalls = d3.scaleOrdinal()
             .domain(["All Pro", "All Star", "None"])
