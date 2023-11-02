@@ -59,7 +59,8 @@ const RBBubble = () => {
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", .9)
+                    .attr("hidden", false);
                 tooltip.html(`Player: ${d.Player} </br> Attempts: ${d.Att} </br> Yards: ${d.Yds} </br> Salary: ${d3.format("$.0d")(d.Salary)}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px");
