@@ -49,19 +49,21 @@ const WRScatter = () => {
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", .9)
+                    .style("visibility", "visible")
                 tooltip.html(`Player: ${d.Player} </br> Targets: ${d.Tgt} </br> Receptions: ${d.Rec}`)
                     .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                    .style("top", (event.pageY - 28) + "px")
             })
             .on("mousemove", function (event) {
                 tooltip.style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                    .style("top", (event.pageY - 28) + "px")
             })
             .on("mouseleave", function () {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0)
+                    .style("visibility", "collapse")
             });
         });
     }, []); // <-- closing parenthesis for useEffect hook
