@@ -60,22 +60,20 @@ const RBBubble = () => {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9)
-                    .attr("hidden", false);
                 tooltip.html(`Player: ${d.Player} </br> Attempts: ${d.Att} </br> Yards: ${d.Yds} </br> Salary: ${d3.format("$.0d")(d.Salary)}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
-                    .attr("hidden", false);
             })
             .on("mousemove", function (event) {
                 tooltip.style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
-                    .attr("hidden", false);
             })
             .on("mouseleave", function () {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0)
-                    .attr("hidden", true)
+                tooltip.html()
+                    .style("opactiy", 100)
             });
 
     //     const allgeierPoint = {
