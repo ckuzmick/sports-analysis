@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: white;
+  background-color: #fff;
   overflow: visible;
 }
 
@@ -14,7 +14,7 @@ svg {
 
 .tooltip {
   position: absolute;
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
@@ -22,15 +22,15 @@ svg {
 
 .bubbles {
   stroke-width: 1px;
-  stroke: white;
+  stroke: #fff;
 }
 
 .bubbles:hover {
-  stroke: #aaa;
+  stroke: #000;
 }
 
 .nav-bar-box {
-  border-bottom: black 1px;
+  border-bottom: #000 1px;
   width: 100%;
   height: 20px;
   fill: #ddd;
