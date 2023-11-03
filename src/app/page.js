@@ -22,7 +22,12 @@ const homePage = () => (
         '/>
         <RBBubble22/>
       </div>
-      <RBBubble23/>
+      <div className='flex place-self-center'>
+        <GraphLabel title='2023 RB Att vs. Yds' text='
+        Similar to the last graph, this showcases the abilities of different NFL running-backs compared to their compensation.
+        '/>
+        <RBBubble23/>
+      </div>
     </div>
   </main>
 );

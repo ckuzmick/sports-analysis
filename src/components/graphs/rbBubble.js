@@ -143,7 +143,7 @@ const RBBubble2023 = () => {
 
         const colorBalls = d3.scaleOrdinal()
             .domain([21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35])
-            .range(d3.schemeBlues[9])
+            .range(d3.schemeSet2)
 
         const tooltip = d3.select("body")
             .append("div")
