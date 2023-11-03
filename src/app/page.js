@@ -29,6 +29,9 @@ const homePage = () => (
         '/>
         <RBBubble23/>
       </div>
+      <div className='flex place-self-center'>
+        <CityChamps/>
+      </div>
     </div>
   </main>
 );
