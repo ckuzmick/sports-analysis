@@ -3,6 +3,7 @@
 import jsonData from '@/data/2022recieverdata.json';
 import WRScatter from '@/components/graphs/wrScatter.js';
 import { RBBubble22, RBBubble23 } from '@/components/graphs/rbBubble.js';
+import CityChamps from '@/components/graphs/cityChamps.js'
 import NavBar from '@/components/page/navBar';
 import GraphLabel from '@/components/page/graphLabel';
 
