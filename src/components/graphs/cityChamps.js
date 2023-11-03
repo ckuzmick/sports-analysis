@@ -38,10 +38,10 @@ const CityChamps = () => {
             .range(d3.schemeSet2)
 
         var jitterWidth = 50
-        svg.selectAll("indPoints")
+        svg.append('g')
               .data(data)
-              .enter()
-              .append("circle")
+              .join("circle")
+                .attr("class", "circles")
                 .attr("cx", d => x(d.Year))
                 .attr("cy", d => y(d.City))
                 .attr("r", 4)
