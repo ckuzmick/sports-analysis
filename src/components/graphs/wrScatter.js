@@ -1,4 +1,4 @@
-
+import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import '@/app/globals.css';
 import * as ss from 'simple-statistics';
@@ -68,7 +68,7 @@ const WRScatter = () => {
         });
     }, []); // <-- closing parenthesis for useEffect hook
 
-    return <svg ref={svgRef}></svg>;
+    return <svg ref={svgRef} className='place-self-center'/>;
 };
 
 export default WRScatter;

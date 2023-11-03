@@ -10,6 +10,7 @@ body {
 svg {
   overflow: visible;
   test-align: right;
+  justify-self: center;
 }
 
 .tooltip {
@@ -30,8 +31,8 @@ svg {
 }
 
 .nav-bar-box {
-  border-bottom: #000 1px;
+  border-bottom: #000 1px solid;
   width: 100%;
-  height: 20px;
+  height: 40px;
   fill: #ddd;
 }
