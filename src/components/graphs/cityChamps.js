@@ -15,43 +15,48 @@ const CityChamps = () => {
             .attr("height", height + margin.top + margin.bottom)
             .attr("class", "plot")
             .append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`)
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/cityChamps.csv").then(data => {
+        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/cityChips.csv").then(data => {
+            const x = d3.scaleLinear()
+                .domain([1900, 2023])
+                .range([0, width]);
 
-        const x = d3.scaleLinear()
-            .domain([ 1950, 2023 ])
-            .range([ 0, width ])
-        svg.append("g").call(d3.axisLeft(y))
+            const xAxis = d3.axisBottom(x)
+                .tickFormat(d3.format("d"));
 
-        const y = d3.scaleBand()
-            .domain([ "Boston", "Philadelphia" ])
-            .range([ height, 0 ])
-            .paddingInner(1)
-            .paddingOuter(.5)
-        svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x))
+            svg.append("g")
+                .attr("transform", `translate(0, ${height})`)
+                .call(xAxis)
+                .attr("class", "x-axis");
 
-        const colorBalls = d3.scaleOrdinal()
-            .domain([ "NFL", "NBA", "MLB", "NHL" ])
-            .range(d3.schemeSet2)
+            const y = d3.scaleBand()
+                .domain(["NYC", "Detroit", "Boston", "Chicago", "Philadelphia", "San Francisco", "Dallas", "Miami", "Denver", "Phoenix", "Twin Cities", "Washington D.C.", "Los Angeles"])
+                .range([height, 0])
+                .paddingInner(1)
+                .paddingOuter(0.5);
 
-        svg.append('g')
-              .data(data)
-              .join("circle")
+            svg.append("g")
+                .call(d3.axisLeft(y))
+                .attr("class", "y-axis")
+
+            const colorBalls = d3.scaleOrdinal()
+                .domain(["NFL", "NBA", "MLB", "NHL"])
+                .range(d3.schemeSet2);
+
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
                 .attr("class", "circles")
                 .attr("cx", d => x(d.Year))
                 .attr("cy", d => y(d.City))
                 .attr("r", 4)
-                .style("fill", "black")
-                .attr("stroke", "black")
-        
-
+                .style("fill", d => colorBalls(d.League))
         });
     }, []);
 
-    return <svg ref={svgRef} className='place-self-center'/>;
+    return <svg ref={svgRef} className='place-self-center' />;
 };
 
 export default CityChamps;
