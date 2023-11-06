@@ -52,6 +52,8 @@ const CityChamps = () => {
                     .attr("y1", d => y(d.City))
                     .attr("x2", d => x(2023))
                     .attr("y2", d => y(d.City))
+                    .attr("stroke", "black")
+                    .style("width", 40)
 
             svg.selectAll("circle")
                 .data(data)
