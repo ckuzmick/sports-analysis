@@ -44,6 +44,15 @@ const CityChamps = () => {
                 .domain(["NFL", "NBA", "MLB", "NHL"])
                 .range(d3.schemeSet2);
 
+            svg.selectAll("guideLines")
+                .data(data)
+                .enter()
+                .append("line")
+                    .attr("x1", d => x(1900))
+                    .attr("y1", d => y(d.City))
+                    .attr("x2", d => x(2023))
+                    .attr("y2", d => y(d.City))
+
             svg.selectAll("circle")
                 .data(data)
                 .enter()
