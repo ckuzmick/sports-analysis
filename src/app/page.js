@@ -6,6 +6,7 @@ import { RBBubble22, RBBubble23 } from '@/components/graphs/rbBubble.js';
 import CityChamps from '@/components/graphs/cityChamps.js'
 import NavBar from '@/components/page/navBar';
 import GraphLabel from '@/components/page/graphLabel';
+import RegularSeasonPlayoffs2023 from '@/components/graphs/regPlayoffs.js';
 
 const homePage = () => (
   <main>
@@ -31,6 +32,9 @@ const homePage = () => (
       </div>
       <div className='flex place-self-center'>
         <CityChamps/>
+      </div>
+      <div className='flex place-self-center'>
+        <RegularSeasonPlayoffs2023/>
       </div>
     </div>
   </main>
