@@ -7,17 +7,18 @@ import CityChamps from '@/components/graphs/cityChamps.js'
 import NavBar from '@/components/page/navBar';
 import GraphLabel from '@/components/page/graphLabel';
 import RegularSeasonPlayoffs2023 from '@/components/graphs/regPlayoffs.js';
+import Wrapper from '@/components/page/wrapper.js';
 
 const homePage = () => (
   <main>
     <div className='grid'>
       <NavBar/>
-      <div className='flex place-self-center'>
+      <Wrapper>
         <GraphLabel title='2023 WR Tgts vs. Recs' text="
         Delve into the heart of football strategy with this chart, unveiling the intricate relationship between wide receivers' targets and successful catches. Through intuitive circles, players come to life on the chart, their sizes indicating salaries for swift comparisons. Essential for fans, analysts, and teams, this visualization sheds light on receiving skills, providing valuable insights for enthusiasts and data aficionados.
         "/>
         <WRScatter/>
-      </div>
+      </Wrapper>
       <div className='flex place-self-center'>
         <GraphLabel title='2022 RB Att vs. Yds' text='
         This visualization captures the essence of football performance by depicting the correlation between rushing attempts and yards gained. Each player is represented by circles, their sizes reflecting salaries, enabling quick comparisons. Vital for fans, analysts, and teams, this chart unveils player dynamics, offering intriguing insights for enthusiasts and data aficionados alike.
