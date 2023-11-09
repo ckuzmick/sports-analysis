@@ -77,7 +77,7 @@ const CityChamps = () => {
                         .duration(200)
                         .style("opacity", .9)
                         .style("visibility", "visible")
-                    tooltip.html(`League: ${d.League} </br> Year: ${d.Year}`)
+                    tooltip.html(`League: ${d.League} </br> Year: ${d.Year} </br> City: ${d.City} </br> Runner Up: ${d.RunnerUp}`)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 28) + "px")
                 })
