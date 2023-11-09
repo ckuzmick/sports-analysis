@@ -17,7 +17,7 @@ const CityChamps = () => {
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-        d3.csv("https://raw.githubusercontent.com/ckuzmick/d3-file-hosting/main/cityChips.csv").then(data => {
+        d3.csv("https://raw.githubusercontent.com/ckuzmick/sports-data/main/data/misc/cityChampionships.csv").then(data => {
             const x = d3.scaleLinear()
                 .domain([1900, 2023])
                 .range([0, width]);
@@ -31,7 +31,7 @@ const CityChamps = () => {
                 .attr("class", "x-axis");
 
             const y = d3.scaleBand()
-                .domain(["NYC", "Detroit", "Boston", "Chicago", "Philadelphia", "San Francisco", "Dallas", "Miami", "Denver", "Phoenix", "Twin Cities", "Washington D.C.", "Los Angeles"])
+                .domain(["NYC", "Detroit", "Boston", "Chicago", "Philadelphia", "Bay Area", "Dallas", "Miami", "Denver", "Phoenix", "Minnesota", "D.C.", "Los Angeles"])
                 .range([height, 0])
                 .paddingInner(1)
                 .paddingOuter(0.5);
