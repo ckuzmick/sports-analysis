@@ -19,18 +19,18 @@ const homePage = () => (
         "/>
         <WRScatter/>
       </Wrapper>
-      <div className='flex place-self-center'>
+      <Wrapper>
         <GraphLabel title='2022 RB Att vs. Yds' text='
         This visualization captures the essence of football performance by depicting the correlation between rushing attempts and yards gained. Each player is represented by circles, their sizes reflecting salaries, enabling quick comparisons. Vital for fans, analysts, and teams, this chart unveils player dynamics, offering intriguing insights for enthusiasts and data aficionados alike.
         '/>
         <RBBubble22/>
-      </div>
-      <div className='flex place-self-center'>
+      </Wrapper>
+      <Wrapper>
         <GraphLabel title='2023 RB Att vs. Yds' text='
         Similar to the last graph, this showcases the abilities of different NFL running-backs compared to their compensation.
         '/>
         <RBBubble23/>
-      </div>
+      </Wrapper>
       <div className='flex place-self-center'>
         <CityChamps/>
       </div>
