@@ -34,10 +34,6 @@ const CityChamps = () => {
                 "D.C.",
                 "Los Angeles"
             ];
-
-            const filteredData = data.filter(function(d) {
-                return cities.indexOf(d[2]) === -1;
-            });
         
             const x = d3.scaleLinear()
                 .domain([1900, 2023])
@@ -52,7 +48,7 @@ const CityChamps = () => {
                 .attr("class", "x-axis");
 
             const y = d3.scaleBand()
-                .domain(["New York City", "Detroit", "Boston", "Chicago", "Philadelphia", "Bay Area", "Dallas", "Miami", "Denver", "Phoenix", "Minnesota", "D.C.", "Los Angeles"])
+                .domain(cities)
                 .range([height, 0])
                 .paddingInner(1)
                 .paddingOuter(0.5);
