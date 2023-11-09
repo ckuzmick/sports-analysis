@@ -47,6 +47,11 @@ const CityChamps = () => {
                 .domain(["NFL", "NBA", "BAA", "ABA", "MLB", "NHL"])
                 .range(d3.schemeSet2);
 
+            const tooltip = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
             svg.selectAll("guideLines")
                 .data(data)
                 .enter()
@@ -59,7 +64,7 @@ const CityChamps = () => {
                     .style("width", 20)
 
             svg.selectAll("circle")
-                .data(data)
+                .data(filteredData)
                 .enter()
                 .append("circle")
                 .attr("class", "circles")
@@ -67,6 +72,25 @@ const CityChamps = () => {
                 .attr("cy", d => y(d.City))
                 .attr("r", 4)
                 .style("fill", d => colorBalls(d.League))
+                .on("mouseover", function (event, d) {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", .9)
+                        .style("visibility", "visible")
+                    tooltip.html(`League: ${d.League} </br> Year: ${d.Year}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px")
+                })
+                .on("mousemove", function (event) {
+                    tooltip.style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px")
+                })
+                .on("mouseleave", function () {
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0)
+                        .style("visibility", "collapse")
+                });
         });
     }, []);
 
