@@ -36,7 +36,7 @@ const CityChamps = () => {
             ];
 
             const filteredData = data.filter(function(d) {
-                return cities.indexOf(d[2]) !== -1;
+                return cities.indexOf(d[2]) === -1;
             });
         
             const x = d3.scaleLinear()
