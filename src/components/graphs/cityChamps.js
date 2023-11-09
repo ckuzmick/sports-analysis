@@ -34,7 +34,7 @@ const CityChamps = () => {
                 .attr("class", "x-axis");
 
             const y = d3.scaleBand()
-                .domain(["NYC", "Detroit", "Boston", "Chicago", "Philadelphia", "Bay Area", "Dallas", "Miami", "Denver", "Phoenix", "Minnesota", "D.C.", "Los Angeles"])
+                .domain(["New York City", "Detroit", "Boston", "Chicago", "Philadelphia", "Bay Area", "Dallas", "Miami", "Denver", "Phoenix", "Minnesota", "D.C.", "Los Angeles"])
                 .range([height, 0])
                 .paddingInner(1)
                 .paddingOuter(0.5);
