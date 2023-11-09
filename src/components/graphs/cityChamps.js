@@ -19,7 +19,25 @@ const CityChamps = () => {
 
         d3.csv("https://raw.githubusercontent.com/ckuzmick/sports-data/main/data/misc/cityChampionships.csv").then(data => {
             
-            const filteredData = data.filter(d => d.City == "Boston");
+            const cities = [
+                "New York City",
+                "Detroit",
+                "Boston",
+                "Chicago",
+                "Philadelphia",
+                "Bay Area",
+                "Dallas", 
+                "Miami",
+                "Denver",
+                "Phoenix",
+                "Minnesota",
+                "D.C.",
+                "Los Angeles"
+            ];
+
+            const filteredData = data.filter(function(d) {
+                return cities.indexOf(d[2]) !== -1;
+            });
         
             const x = d3.scaleLinear()
                 .domain([1900, 2023])
