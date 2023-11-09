@@ -41,7 +41,7 @@ const CityChamps = () => {
                 .attr("class", "y-axis")
 
             const colorBalls = d3.scaleOrdinal()
-                .domain(["NFL", "NBA", "MLB", "NHL"])
+                .domain(["NFL", "NBA", "BAA", "ABA", "MLB", "NHL"])
                 .range(d3.schemeSet2);
 
             svg.selectAll("guideLines")
