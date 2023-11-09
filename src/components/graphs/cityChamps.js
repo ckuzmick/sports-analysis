@@ -18,6 +18,9 @@ const CityChamps = () => {
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
         d3.csv("https://raw.githubusercontent.com/ckuzmick/sports-data/main/data/misc/cityChampionships.csv").then(data => {
+            
+            const filteredData = data.filter(d => +d.City !== "Boston" || "New York City");
+        
             const x = d3.scaleLinear()
                 .domain([1900, 2023])
                 .range([0, width]);
