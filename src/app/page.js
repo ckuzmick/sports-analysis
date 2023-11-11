@@ -31,9 +31,12 @@ const homePage = () => (
         '/>
         <RBBubble23/>
       </Wrapper>
-      <div className='flex place-self-center'>
+      <Wrapper>
+        <GraphLabel title='Who&apos;s really titletown?' text='
+        Similar to the last graph, this showcases the abilities of different NFL running-backs compared to their compensation.
+        '/>
         <CityChamps/>
-      </div>
+      </Wrapper>
       <div className='flex place-self-center'>
         <RegularSeasonPlayoffs2023/>
       </div>

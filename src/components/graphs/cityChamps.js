@@ -80,7 +80,7 @@ const CityChamps = () => {
                     .attr("y2", d => y(d.City))
                     .attr("stroke", "gray")
                     .attr("stroke-opacity", 0.5)
-                    .attr("stroke-width", 2)
+                    .attr("stroke-width", 1)
                     .attr("stroke-dasharray", "5,5");
 
             svg.selectAll("circle")
@@ -97,7 +97,7 @@ const CityChamps = () => {
                         .duration(200)
                         .style("opacity", .9)
                         .style("visibility", "visible")
-                    tooltip.html(`League: ${d.League} </br> Year: ${d.Year} </br> City: ${d.City} </br> Runner Up: ${d.RunnerUp}`)
+                    tooltip.html(`League: ${d.League} </br> Year: ${d.Year} </br> City: ${d.City}`)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 28) + "px")
                 })
