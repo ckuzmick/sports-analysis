@@ -14,6 +14,9 @@ const homePage = () => (
     <div className='grid'>
       <NavBar/>
       <h1 className='top-header'>Hi--this is my site for testing out d3, here&apos;s some of the things I&apos;ve done!!</h1>
+      <ul>
+        <li><a href='/titletown'>Who's really titletown?</a></li>
+      </ul>
     </div>
   </main>
 );
