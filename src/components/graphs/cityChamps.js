@@ -2,13 +2,27 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import '@/app/globals.css';
 
-const CityChamps = () => {
+const CityChamps = ({startYear = 1900, cities = [
+    "New York City",
+    "Detroit",
+    "Boston",
+    "Chicago",
+    "Philadelphia",
+    "Bay Area",
+    "Dallas", 
+    "Miami",
+    "Denver",
+    "Phoenix",
+    "Minnesota",
+    "D.C.",
+    "Los Angeles"
+], startHeight, endYear = 2023}) => {
     const svgRef = useRef(null);
 
     useEffect(() => {
         const margin = { top: 30, right: 50, bottom: 50, left: 50 },
             width = 700 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+            height = startHeight - margin.top - margin.bottom;
 
         const svg = d3.select(svgRef.current)
             .attr("width", width + margin.left + margin.right)
@@ -18,30 +32,30 @@ const CityChamps = () => {
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+        console.log("hello");
+
         d3.csv("https://raw.githubusercontent.com/ckuzmick/sports-data/main/data/misc/cityChampionships.csv").then(data => {
 
-            const cities = [
-                "New York City",
-                "Detroit",
-                "Boston",
-                "Chicago",
-                "Philadelphia",
-                "Bay Area",
-                "Dallas", 
-                "Miami",
-                "Denver",
-                "Phoenix",
-                "Minnesota",
-                "D.C.",
-                "Los Angeles"
-            ];
+            // var cities = [
+            //     "New York City",
+            //     "Detroit",
+            //     "Boston",
+            //     "Chicago",
+            //     "Philadelphia",
+            //     "Bay Area",
+            //     "Dallas", 
+            //     "Miami",
+            //     "Denver",
+            //     "Phoenix",
+            //     "Minnesota",
+            //     "D.C.",
+            //     "Los Angeles"
+            // ];
 
-            const filteredData = data.filter((row) => cities.includes(row.City));
-
-            console.log(filteredData);
+            var filteredData = data.filter((row) => cities.includes(row.City) && startYear <= row.Year && endYear >= row.Year);
         
             const x = d3.scaleLinear()
-                .domain([1900, 2023])
+                .domain([startYear, endYear])
                 .range([0, width]);
 
             const xAxis = d3.axisBottom(x)
@@ -75,9 +89,9 @@ const CityChamps = () => {
                 .data(filteredData)
                 .enter()
                 .append("line")
-                    .attr("x1", d => x(1900))
+                    .attr("x1", d => x(startYear))
                     .attr("y1", d => y(d.City))
-                    .attr("x2", d => x(2023))
+                    .attr("x2", d => x(endYear))
                     .attr("y2", d => y(d.City))
                     .attr("stroke", "gray")
                     .attr("stroke-opacity", 0.5)
@@ -113,7 +127,7 @@ const CityChamps = () => {
                         .style("visibility", "collapse")
                 });
         });
-    }, []);
+    }, [startYear, endYear, cities, startHeight]);
 
     return <svg ref={svgRef} className='place-self-center' />;
 };
