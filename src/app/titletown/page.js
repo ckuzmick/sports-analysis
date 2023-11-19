@@ -20,7 +20,7 @@ const homePage = () => (
         startHeight={150}
         startYear={1900}
       />
-      <p className='text-1'>But let's zoom in a little:</p>
+      <p className='text-1'>But let&apos;s zoom in a little:</p>
       <CityChamps 
       startHeight={500}
       startYear={1999.5}
