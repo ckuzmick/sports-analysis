@@ -7,7 +7,8 @@ const homePage = () => (
   <main>
     <div className='grid'>
       <NavBar/>
-      <h1 className='top-header'>Long have we debated the question of who&apos;s really titletown.<br/>This data analysis is going to answer that.</h1>
+      <h1 className='top-header'>So, who's really titletown?</h1>
+      <p className='text-1'>To start off, lets just look at who&apos;s won the most titles:</p>
       <CityChamps
         startHeight={500}
       />
