@@ -38,10 +38,6 @@ const RBBubble2022 = () => {
             .domain([525000, 10000000])
             .range([5, 22]);
 
-        const colorBalls = d3.scaleOrdinal()
-            .domain(["All Pro", "All Star", "None"])
-            .range(d3.schemeSet2)
-
         const tooltip = d3.select("body")
             .append("div")
             .attr("class", "tooltip")
@@ -55,7 +51,7 @@ const RBBubble2022 = () => {
                 .attr("cx", d => x(+d.Att))
                 .attr("cy", d => y(+d.Yds))
                 .attr("r", d => z(+d.Salary))
-                .style("fill", d => colorBalls(d.End))
+                .style("fill", "blue")
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
