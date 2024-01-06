@@ -4,7 +4,7 @@ import '@/app/globals.css';
 import * as ss from 'simple-statistics';
 import { XAxis } from 'recharts';
 
-const RBBubble2022 = () => {
+const MathMcasBubble = () => {
     const svgRef = useRef(null);
 
     useEffect(() => {
@@ -22,20 +22,20 @@ const RBBubble2022 = () => {
         d3.csv("https://raw.githubusercontent.com/ckuzmick/RF-Files/main/rf001_01.csv").then(data => {
 
         const x = d3.scaleLinear()
-            .domain([0, 400])
+            .domain([0, 100000])
             .range([0, width]);
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x));
 
         const y = d3.scaleLinear()
-            .domain([0, 1800])
+            .domain([400, 560])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
 
         const z = d3.scaleLinear()
-            .domain([525000, 10000000])
+            .domain([10000, 1000000])
             .range([5, 22]);
 
         const tooltip = d3.select("body")
@@ -48,16 +48,16 @@ const RBBubble2022 = () => {
             .data(data)
             .join("circle")
                 .attr("class", "bubbles")
-                .attr("cx", d => x(+d.Att))
-                .attr("cy", d => y(+d.Yds))
-                .attr("r", d => z(+d.Salary))
+                .attr("cx", d => x(+d.PerCapitaIncome))
+                .attr("cy", d => y(+d.Score))
+                .attr("r", d => z(+d.Population))
                 .style("fill", "blue")
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9)
                     .style("visibility", "visible")
-                tooltip.html(`Player: ${d.Player} </br> Attempts: ${d.Att} </br> Yards: ${d.Yds} </br> Salary: ${d3.format("$.2s")(d.Salary)}`)
+                tooltip.html(`<b>${d.District}</b><br/>Population: ${d3.format(",")(d.Population)}<br/>Per Capita Income: $${d3.format(",")(d.PerCapitaIncome)}<br/>MCAS Score: ${d.Score}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
             })
@@ -77,4 +77,4 @@ const RBBubble2022 = () => {
     return <svg ref={svgRef} className='place-self-center'/>;
 };
 
-export const RBBubble22 = RBBubble2022;
+export default MathMcasBubble;
