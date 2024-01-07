@@ -22,21 +22,22 @@ const MathMcasBubble = () => {
         d3.csv("https://raw.githubusercontent.com/ckuzmick/RF-Files/main/rf001_01.csv").then(data => {
 
         const x = d3.scaleLinear()
-            .domain([0, 100000])
+            .domain([20000, 100000])
             .range([0, width]);
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x));
 
         const y = d3.scaleLinear()
-            .domain([400, 560])
+            .domain([467, 525])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
 
-        const z = d3.scaleLinear()
+        const z = d3.scalePow()
             .domain([10000, 1000000])
-            .range([5, 22]);
+            .range([3, 22])
+            .exponent(.75);
 
         const tooltip = d3.select("body")
             .append("div")
@@ -48,16 +49,16 @@ const MathMcasBubble = () => {
             .data(data)
             .join("circle")
                 .attr("class", "bubbles")
-                .attr("cx", d => x(+d.PerCapitaIncome))
+                .attr("cx", d => x(+d.PCI))
                 .attr("cy", d => y(+d.Score))
                 .attr("r", d => z(+d.Population))
-                .style("fill", "blue")
+                .style("fill", d => d.District === "Cambridge" ? "#173753" : "#6DAEDB")
             .on("mouseover", function (event, d) {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9)
                     .style("visibility", "visible")
-                tooltip.html(`<b>${d.District}</b><br/>Population: ${d3.format(",")(d.Population)}<br/>Per Capita Income: $${d3.format(",")(d.PerCapitaIncome)}<br/>MCAS Score: ${d.Score}`)
+                tooltip.html(`<b>${d.District}</b><br/>Population: ${d3.format(",")(d.Population)}<br/>Per Capita Income: $${d3.format(",")(d.PCI)}<br/>MCAS Score: ${d.Score}`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
             })
